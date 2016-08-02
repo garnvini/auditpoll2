@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2016-08-02 13:34:09
+Date: 2016-08-02 14:44:54
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -164,7 +164,7 @@ CREATE TABLE `log` (
   KEY `log_ibfk_2` (`logTypeID`),
   CONSTRAINT `log_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `user` (`userID`),
   CONSTRAINT `log_ibfk_2` FOREIGN KEY (`logTypeID`) REFERENCES `logtype` (`logTypeID`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=149 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=153 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of log
@@ -295,6 +295,10 @@ INSERT INTO `log` VALUES ('145', '5', '::1', 'เข้าสู่ระบบ'
 INSERT INTO `log` VALUES ('146', '2', '::1', 'เข้าสู่ระบบ', '1', '2016-08-01 05:39:38');
 INSERT INTO `log` VALUES ('147', '5', '::1', 'เข้าสู่ระบบ', '1', '2016-08-01 11:05:44');
 INSERT INTO `log` VALUES ('148', '5', '::1', 'เข้าสู่ระบบ', '1', '2016-08-02 04:10:42');
+INSERT INTO `log` VALUES ('149', '3', '::1', 'เข้าสู่ระบบ', '1', '2016-08-02 09:04:42');
+INSERT INTO `log` VALUES ('150', '2', '::1', 'เข้าสู่ระบบ', '1', '2016-08-02 09:05:07');
+INSERT INTO `log` VALUES ('151', '2', '::1', 'เพิ่มข้อมูลการออกตรวจ SCADA', '3', '2016-08-02 09:05:51');
+INSERT INTO `log` VALUES ('152', '3', '::1', 'เข้าสู่ระบบ', '1', '2016-08-02 09:06:35');
 
 -- ----------------------------
 -- Table structure for `logtype`
@@ -356,7 +360,7 @@ CREATE TABLE `process` (
   CONSTRAINT `process_ibfk_13` FOREIGN KEY (`pwaBranchID`) REFERENCES `pwabranch` (`pwaBranchID`),
   CONSTRAINT `process_ibfk_14` FOREIGN KEY (`approveBy`) REFERENCES `user` (`userID`) ON DELETE SET NULL ON UPDATE SET NULL,
   CONSTRAINT `process_ibfk_5` FOREIGN KEY (`processStatusID`) REFERENCES `processstatus` (`processStatusID`)
-) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of process
@@ -366,6 +370,7 @@ INSERT INTO `process` VALUES ('46', 'การจัดทำรายงาน�
 INSERT INTO `process` VALUES ('47', 'การวางแผนเชิงกลยุทธ์', '2', '34', '2016-06-01', '2016-07-01', '3', '2559', '2016-07-27', '3', '2');
 INSERT INTO `process` VALUES ('48', 'การควบคุมทั่วไป (ITGC)', '1', '32', '2016-04-01', '2016-05-12', '3', '2559', '2016-07-27', '3', '2');
 INSERT INTO `process` VALUES ('49', 'GIS', '78', '26', '2016-07-01', '2016-07-31', '4', '2559', '2016-07-29', '3', '4');
+INSERT INTO `process` VALUES ('50', 'SCADA', '1', '26', '2016-04-01', '2016-05-07', '3', '2559', null, null, '1');
 
 -- ----------------------------
 -- Table structure for `processstatus`
